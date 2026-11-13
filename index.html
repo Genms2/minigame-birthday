@@ -23,7 +23,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Press Start 2P',ui-monos
 #wrap{position:relative;width:100%}
 canvas{width:100%;aspect-ratio:16/9;display:block;image-rendering:auto;border:3px solid var(--line);border-radius:4px;touch-action:none;background:#0b1a3a}
 #hud{display:flex;justify-content:space-between;width:100%;font-size:9px}
-button{font:inherit;cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none}
+button{font:inherit;cursor:pointer;touch-action:pan-y;-webkit-user-select:none;user-select:none}
 .btn{background:var(--btn);color:var(--btnink);border:0;padding:12px 16px;border-radius:4px;box-shadow:0 3px 0 rgba(0,0,0,.3)}
 #pad{display:flex;gap:10px;width:100%;justify-content:center}
 #pad button{flex:1;max-width:120px;height:54px;background:var(--card);color:var(--ui);border:2px solid var(--line);border-radius:6px;font-size:16px}
@@ -89,7 +89,11 @@ canvas#c{aspect-ratio:10/9;object-fit:cover;border:0;border-radius:0}
 .pill span{font-size:calc(var(--u)*1.9);color:#1d2a7a;font-weight:700;letter-spacing:.04em}
 .spk{position:absolute;right:calc(var(--u)*9);bottom:calc(var(--u)*4);width:calc(var(--u)*22);height:calc(var(--u)*14.7)}
 #pair{width:calc(var(--u)*46)!important;height:auto!important;aspect-ratio:12/7!important}
-#ck,#ev{width:calc(var(--u)*34)!important;height:calc(var(--u)*34)!important}
+#ck,#ev{width:calc(var(--u)*24)!important;height:calc(var(--u)*24)!important;margin-bottom:calc(var(--u)*1.5)!important}
+.box{touch-action:pan-y;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.box canvas,.box button,.box p,.box h1{touch-action:pan-y}
+#cake .box h1,#env .box h1{margin-bottom:calc(var(--u)*1.2)}
+#cake .box,#env .box,#mem .box,#swo .box{padding:calc(var(--u)*2)}
 </style>
 </head>
 <body>
@@ -117,7 +121,7 @@ canvas#c{aspect-ratio:10/9;object-fit:cover;border:0;border-radius:0}
       <p id="ct">Tiup lilinnya dulu, ya. Ketuk kuenya untuk meniup lilin.</p>
       <button class="btn" id="ckn" style="display:none">Lanjut ›</button>
     </div></div>
-    <div id="swo" class="ov"><div class="box"><h1>Ayunan di taman ♥</h1><canvas id="sw" width="384" height="288" style="width:100%;max-width:320px;aspect-ratio:4/3;display:block;margin:0 auto 10px;cursor:pointer;touch-action:none"></canvas><p id="swt">Ketuk ayunannya untuk mengayun (0/8)</p><button class="btn" id="swn" style="display:none">Lanjut ›</button></div></div>
+    <div id="swo" class="ov"><div class="box"><h1>Ayunan di taman ♥</h1><canvas id="sw" width="384" height="288" style="width:100%;max-width:320px;aspect-ratio:4/3;display:block;margin:0 auto 10px;cursor:pointer;touch-action:pan-y"></canvas><p id="swt">Ketuk ayunannya untuk mengayun (0/8)</p><button class="btn" id="swn" style="display:none">Lanjut ›</button></div></div>
     <div id="env" class="ov"><div class="box">
       <h1>Ada surat untuk Bebee ♥</h1>
       <canvas id="ev" width="128" height="128" style="width:128px;height:128px;aspect-ratio:1;border:0;background:none;cursor:pointer;margin:0 auto 10px"></canvas>
